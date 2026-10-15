@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or neural network model in your research, please cite it as below."
+title: "Kidney Disease Radiology AI Workstation: Deep Learning CT Scan Classifier"
+abstract: "A high-precision medical AI workstation for automated kidney disease classification from CT scans (Tumor, Cyst, Stone, and Normal Tissue) using transfer learning with VGG16, reaching 93.47% accuracy."
+authors:
+  - family-names: "Al-Ahjari"
+    given-names: "Ali"
+    alias: "ALI-ALAHJARI"
+    email: "Ali.Al.Ahjari@gmail.com"
+repository-code: "https://github.com/Ali-Al-Ahjari/kidney-disease-radiology-ai"
+keywords:
+  - "deep-learning"
+  - "medical-imaging"
+  - "radiology"
+  - "kidney-disease"
+  - "ct-scan"
+  - "vgg16"
+  - "transfer-learning"
+  - "computer-vision"
+license: "MIT"
+version: "1.0.0"
+date-released: 2026-10-15

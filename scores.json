@@ -1,0 +1,94 @@
+{
+    "loss": 0.1962,
+    "accuracy": 0.9347,
+    "accuracy_percentage": "93.47%",
+    "macro_precision": 95.28,
+    "macro_recall": 90.33,
+    "macro_f1": 92.03,
+    "classes": [
+        "Cyst",
+        "Normal",
+        "Stone",
+        "Tumor"
+    ],
+    "per_class_performance": {
+        "Cyst": {
+            "total_samples": 494,
+            "true_positives": 494,
+            "false_positives": 89,
+            "false_negatives": 0,
+            "precision": 84.73,
+            "recall": 100.0,
+            "f1_score": 91.74,
+            "accuracy_percentage": 100.0
+        },
+        "Normal": {
+            "total_samples": 751,
+            "true_positives": 750,
+            "false_positives": 28,
+            "false_negatives": 1,
+            "precision": 96.4,
+            "recall": 99.87,
+            "f1_score": 98.1,
+            "accuracy_percentage": 99.87
+        },
+        "Stone": {
+            "total_samples": 205,
+            "true_positives": 181,
+            "false_positives": 0,
+            "false_negatives": 24,
+            "precision": 100.0,
+            "recall": 88.29,
+            "f1_score": 93.78,
+            "accuracy_percentage": 88.29
+        },
+        "Tumor": {
+            "total_samples": 343,
+            "true_positives": 251,
+            "false_positives": 0,
+            "false_negatives": 92,
+            "precision": 100.0,
+            "recall": 73.18,
+            "f1_score": 84.51,
+            "accuracy_percentage": 73.18
+        }
+    },
+    "confusion_matrix": {
+        "classes": [
+            "Cyst",
+            "Normal",
+            "Stone",
+            "Tumor"
+        ],
+        "matrix": [
+            [
+                494,
+                0,
+                0,
+                0
+            ],
+            [
+                1,
+                750,
+                0,
+                0
+            ],
+            [
+                24,
+                0,
+                181,
+                0
+            ],
+            [
+                64,
+                28,
+                0,
+                251
+            ]
+        ]
+    },
+    "model_architecture": "VGG16 Transfer Learning + Fine Tuning (4 Classes)",
+    "training_time_minutes": 82.77,
+    "total_test_samples": 1793,
+    "timestamp": "2026-10-14 02:16:31"
+}

@@ -1,0 +1,15 @@
+# Core Deep Learning & Computer Vision
+tensorflow>=2.12.0,<2.18.0
+numpy>=1.23.5,<2.0.0
+Pillow>=9.5.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+
+# Web Engine
+Flask>=2.3.0
+Flask-Cors>=4.0.0
+
+# Utilities
+pyyaml>=6.0
+python-box>=6.0.2
+ensure>=1.0.2

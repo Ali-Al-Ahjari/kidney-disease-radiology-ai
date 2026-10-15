@@ -1,0 +1,45 @@
+name: CI Quality & Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          pip install -r requirements.txt
+          pip install -e .
+
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.venv,python_base,artifacts
+          # exit-zero treats all errors as warnings.
+          flake8 . --count --exit-zero --max-complexity=15 --max-line-length=127 --statistics --exclude=.venv,python_base,artifacts
+
+      - name: Verify Package Import & Structure
+        run: |
+          python -c "import cnnClassifier; print('Package cnnClassifier imported successfully!')"
+          python -c "from cnnClassifier.pipeline.prediction import get_class_names; print('Classes:', get_class_names())"

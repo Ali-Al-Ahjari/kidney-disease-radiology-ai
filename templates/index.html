@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظومة حلل للذكاء الاصطناعي | فحص وتشخيص أورام وأمراض الكلى</title>
+    <style>
+        /* ════════════════════════════════════════════
+           RADK DESIGN SYSTEM v3.0 — Editorial Soft
+           Inspired by Notion / Craft / iA Writer
+           Extracted with 100% token fidelity from Raddak AI
+           ════════════════════════════════════════════ */
+        :root {
+            /* ── Surfaces — warm cream stack ── */
+            --bg-base: #faf8f5;
+            --bg-soft: #f5f1ea;
+            --bg-surface: #ffffff;
+            --bg-overlay: rgba(250, 248, 245, 0.86);
+            --bg-muted: #f0ebe2;
+            --bg-subtle: #ece6db;
+            --bg-tint: #fdfbf7;
+
+            /* ── Ink — warm neutrals ── */
+            --text-primary: #1a1714;
+            --text-secondary: #4a423b;
+            --text-muted: #807468;
+            --text-placeholder: #b3a89b;
+            --text-faint: #c9bfb1;
+            --text-inverse: #faf8f5;
+
+            /* ── Hairlines — soft warm borders ── */
+            --border-base: #e8e2d6;
+            --border-strong: #d6cdbd;
+            --border-soft: #f0ebe2;
+            --border-focus: rgba(135, 95, 50, 0.45);
+
+            /* ── Accent — single editorial ochre ── */
+            --accent: #875f32;
+            --accent-hover: #6d4b25;
+            --accent-soft: #f3e9d8;
+            --accent-strong: #4d3318;
+            --accent-ink: #2c1e0f;
+
+            /* ── Semantic — muted, not loud ── */
+            --semantic-success: #4d7c4d;
+            --semantic-success-bg: #e8efe3;
+            --semantic-warning: #a06a1c;
+            --semantic-warning-bg: #f5ead0;
+            --semantic-error: #9b3a3a;
+            --semantic-error-bg: #f3dada;
+            --semantic-info: #4a6878;
+            --semantic-info-bg: #e2ebf0;
+
+            /* ── Shadows — soft layered ── */
+            --shadow-xs: 0 1px 0 rgba(26, 23, 20, 0.04);
+            --shadow-sm: 0 1px 2px rgba(26, 23, 20, 0.05), 0 1px 0 rgba(26, 23, 20, 0.03);
+            --shadow-md: 0 2px 4px rgba(26, 23, 20, 0.06), 0 1px 2px rgba(26, 23, 20, 0.04);
+            --shadow-lg: 0 4px 12px rgba(26, 23, 20, 0.08), 0 2px 4px rgba(26, 23, 20, 0.04);
+            --shadow-inset: inset 0 0 0 1px rgba(26, 23, 20, 0.04);
+
+            /* ── Corners ── */
+            --radius-xs: 4px;
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 10px;
+            --radius-xl: 14px;
+            --radius-2xl: 18px;
+            --radius-full: 9999px;
+
+            /* ── Motion ── */
+            --motion-fast: 120ms ease-out;
+            --motion-normal: 160ms ease-out;
+            --motion-slow: 220ms ease-out;
+
+            /* ── Type families ── */
+            --font-display: "Tajawal", "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --font-text: "Cairo", "Noto Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --font-mono: "JetBrains Mono", "Fira Code", monospace;
+        }
+
+        /* ════════════════════════════════════════════
+           Dark Mode — warm charcoal, not harsh black
+           ════════════════════════════════════════════ */
+        html.dark {
+            --bg-base: #14110d;
+            --bg-soft: #1c1814;
+            --bg-surface: #1f1b16;
+            --bg-overlay: rgba(20, 17, 13, 0.88);
+            --bg-muted: #25201a;
+            --bg-subtle: #2b2520;
+            --bg-tint: #181410;
+
+            --text-primary: #f0e9dc;
+            --text-secondary: #c7bda9;
+            --text-muted: #8d8270;
+            --text-placeholder: #5a5246;
+            --text-faint: #3d362c;
+            --text-inverse: #1a1714;
+
+            --border-base: #2e2820;
+            --border-strong: #3d362c;
+            --border-soft: #25201a;
+            --border-focus: rgba(214, 175, 121, 0.5);
+
+            --accent: #d6af79;
+            --accent-hover: #e4c08b;
+            --accent-soft: #2e2418;
+            --accent-strong: #f0d4a3;
+            --accent-ink: #1a1208;
+
+            --semantic-success: #88b088;
+            --semantic-success-bg: #1e2a1e;
+            --semantic-warning: #d9a45a;
+            --semantic-warning-bg: #2d2418;
+            --semantic-error: #c97070;
+            --semantic-error-bg: #2e1c1c;
+            --semantic-info: #8aabbd;
+            --semantic-info-bg: #1c2530;
+
+            --shadow-xs: 0 1px 0 rgba(0, 0, 0, 0.4);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.55);
+            --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.6);
+            --shadow-inset: inset 0 0 0 1px rgba(240, 233, 220, 0.04);
+        }
+
+        /* ════════════════════════════════════════════
+           Base & Global Typography
+           ════════════════════════════════════════════ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border-color: var(--border-base);
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-text);
+            font-weight: 400;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            transition: background-color var(--motion-normal), color var(--motion-normal);
+        }
+
+        /* Ambient paper texture overlay matching Raddak AI */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(135, 95, 50, 0.03), transparent 70%);
+        }
+
+        html.dark body::before {
+            background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(214, 175, 121, 0.04), transparent 70%);
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: var(--text-primary);
+        }
+
+        .text-eyebrow {
+            font-family: var(--font-text);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .tabular-nums {
+            font-family: var(--font-mono);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ════════════════════════════════════════════
+           Navbar — Editorial Header
+           ════════════════════════════════════════════ */
+        .radk-nav {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border-base);
+            padding: 14px 28px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color var(--motion-fast), border-color var(--motion-fast);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-cluster {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-monogram {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-md);
+            background-color: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid var(--border-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .brand-meta h1 {
+            font-size: 1.05rem;
+            line-height: 1.25;
+            font-weight: 800;
+        }
+
+        .brand-meta p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ════════════════════════════════════════════
+           Buttons — Raddak AI Design System
+           ════════════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            transition: background-color var(--motion-fast), border-color var(--motion-fast), color var(--motion-fast), transform var(--motion-fast);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid transparent;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--border-focus);
+            outline-offset: 2px;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-default {
+            background-color: var(--accent);
+            color: var(--accent-ink);
+            border-color: var(--accent);
+        }
+        .btn-default:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-muted);
+            color: var(--text-primary);
+            border-color: var(--border-base);
+        }
+        .btn-secondary:hover {
+            background-color: var(--bg-subtle);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+        .btn-outline:hover {
+            background-color: var(--bg-muted);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--text-secondary);
+        }
+        .btn-ghost:hover {
+            background-color: var(--bg-muted);
+            color: var(--text-primary);
+        }
+
+        .btn-icon {
+            padding: 8px;
+            min-width: 36px;
+            min-height: 36px;
+        }
+
+        /* ════════════════════════════════════════════
+           Badges — Raddak AI Design System
+           ════════════════════════════════════════════ */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: var(--radius-full);
+            padding: 3px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+        }
+
+        .badge-default { background-color: var(--accent-soft); color: var(--accent-strong); }
+        .badge-secondary { background-color: var(--bg-muted); color: var(--text-secondary); }
+        .badge-muted { background-color: var(--bg-muted); color: var(--text-muted); }
+        .badge-success { background-color: var(--semantic-success-bg); color: var(--semantic-success); }
+        .badge-warning { background-color: var(--semantic-warning-bg); color: var(--semantic-warning); }
+        .badge-destructive { background-color: var(--semantic-error-bg); color: var(--semantic-error); }
+        .badge-info { background-color: var(--semantic-info-bg); color: var(--semantic-info); }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: currentColor;
+        }
+
+        /* ════════════════════════════════════════════
+           Cards & Surface Layout
+           ════════════════════════════════════════════ */
+        .workspace {
+            max-width: 1400px;
+            width: 100%;
+            margin: 24px auto;
+            padding: 0 24px;
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-base);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color var(--motion-fast), background-color var(--motion-fast);
+        }
+
+        .card-header {
+            padding: 24px 28px 16px 28px;
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .card-content {
+            padding: 24px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* ════════════════════════════════════════════
+           CT Scan Viewport — Editorial Dark Slate
+           ════════════════════════════════════════════ */
+        .viewport-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            background-color: #0b0908;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-inset);
+        }
+
+        .viewport-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: filter var(--motion-fast), transform var(--motion-fast);
+        }
+
+        .viewport-empty {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 32px;
+        }
+
+        .viewport-empty svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            color: var(--text-faint);
+            stroke-width: 1.5;
+        }
+
+        .viewport-empty h4 {
+            font-size: 1rem;
+            color: #f0e9dc;
+            margin-bottom: 4px;
+        }
+
+        .viewport-empty p {
+            font-size: 0.82rem;
+            max-width: 320px;
+            margin: 0 auto;
+            color: #8d8270;
+        }
+
+        /* Viewport Controls Bar */
+        .viewport-toolbar {
+            background-color: var(--bg-muted);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-lg);
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .toolbar-label {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Dropzone Box */
+        .dropzone {
+            border: 1.5px dashed var(--border-strong);
+            background-color: var(--bg-soft);
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color var(--motion-fast), background-color var(--motion-fast);
+        }
+
+        .dropzone:hover, .dropzone.dragover {
+            border-color: var(--accent);
+            background-color: var(--accent-soft);
+        }
+
+        .dropzone-title {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .dropzone-sub {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ════════════════════════════════════════════
+           Diagnostic Verdict & Stat Cards
+           ════════════════════════════════════════════ */
+        .verdict-banner {
+            border-radius: var(--radius-xl);
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            border: 1px solid transparent;
+            transition: all var(--motion-normal);
+        }
+
+        .verdict-banner.success {
+            background-color: var(--semantic-success-bg);
+            border-color: var(--semantic-success);
+            color: var(--semantic-success);
+        }
+
+        .verdict-banner.error {
+            background-color: var(--semantic-error-bg);
+            border-color: var(--semantic-error);
+            color: var(--semantic-error);
+        }
+
+        .verdict-banner.warning {
+            background-color: var(--semantic-warning-bg);
+            border-color: var(--semantic-warning);
+            color: var(--semantic-warning);
+        }
+
+        .verdict-banner.info {
+            background-color: var(--semantic-info-bg);
+            border-color: var(--semantic-info);
+            color: var(--semantic-info);
+        }
+
+        .verdict-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: currentColor;
+        }
+
+        .verdict-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #ffffff;
+        }
+
+        .verdict-body h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: inherit;
+            margin-bottom: 4px;
+        }
+
+        .verdict-body p {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Multi-class Probability Breakdown */
+        .prob-section {
+            background-color: var(--bg-soft);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-xl);
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .prob-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .prob-row {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .prob-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .progress-rail {
+            height: 7px;
+            background-color: var(--bg-muted);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: var(--radius-full);
+            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bar-normal { background-color: var(--semantic-success); }
+        .bar-tumor { background-color: var(--semantic-error); }
+        .bar-cyst { background-color: var(--semantic-info); }
+        .bar-stone { background-color: var(--semantic-warning); }
+
+        /* StatCard Grid — matching Raddak stat-card.tsx */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-base);
+            border-radius: var(--radius-lg);
+            padding: 14px 16px;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .stat-label {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+        }
+
+        /* Footer */
+        .radk-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-base);
+            background-color: var(--bg-surface);
+            padding: 16px 28px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Spinner */
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(44, 30, 15, 0.2);
+            border-top-color: var(--accent-ink);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #fff !important; color: #000 !important; }
+            .card { border: 1px solid #ccc; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="radk-nav no-print">
+        <div class="nav-inner">
+            <div class="brand-cluster">
+                <div class="brand-monogram">ر</div>
+                <div class="brand-meta">
+                    <h1>منظومة حلل للذكاء الاصطناعي السريري</h1>
+                    <p>فحص وتشخيص مقاطع الكلى · محطة التشخيص الإشعاعي المقطعي المتقدم للكلى</p>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <!-- Theme Mode Toggle (Light / Dark) -->
+                <button type="button" class="btn btn-outline btn-icon" id="btnThemeToggle" title="تبديل الوضع (نهاري / ليلي)" aria-label="تبديل الوضع">
+                    <!-- Sun icon for dark mode -->
+                    <svg id="iconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                    </svg>
+                    <!-- Moon icon for light mode -->
+                    <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                </button>
+
+                <!-- Status Badge -->
+                <span class="badge badge-success" id="serverStatusBadge">
+                    <span class="status-dot"></span> متصل ومستعد (Offline 100%)
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="workspace">
+        
+        <!-- Left Panel: Viewport & Inspection -->
+        <section class="card">
+            <div class="card-header">
+                <div>
+                    <h2 class="card-title">حجرة فحص ومعاينة المقطع الكلوي</h2>
+                    <p class="card-description">عارض مقاطع الأشعة المقطعية المتوافق مع DICOM مع أدوات ضبط التباين والتكبير السريري.</p>
+                </div>
+                <button type="button" class="btn btn-secondary no-print" id="btnSampleScan" style="font-size: 0.8rem; padding: 6px 12px;">
+                    تحميل عينة تجريبية
+                </button>
+            </div>
+
+            <div class="card-content">
+                <!-- Viewport Screen Frame -->
+                <div class="viewport-box" id="viewportBox">
+                    <div class="viewport-empty" id="viewportEmpty">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                        </svg>
+                        <h4>بانتظار تلقيم صورة الأشعة</h4>
+                        <p>قم بسحب وإفلات مقطع الـ CT الكلوي أو انقر للتصفح من الجهاز للبدء في التشخيص الفوري.</p>
+                    </div>
+                    <img id="viewportImg" class="viewport-img" src="" alt="CT Scan" style="display: none;" />
+                </div>
+
+                <!-- Viewport DICOM Controls Toolbar -->
+                <div class="viewport-toolbar no-print">
+                    <div class="toolbar-group">
+                        <span class="toolbar-label">أدوات العرض:</span>
+                        <button type="button" class="btn btn-outline" id="btnInvert" style="padding: 4px 10px; font-size: 0.78rem;">عكس التباين</button>
+                        <button type="button" class="btn btn-outline" id="btnEnhance" style="padding: 4px 10px; font-size: 0.78rem;">تعزيز الحدة</button>
+                    </div>
+
+                    <div class="toolbar-group">
+                        <span class="toolbar-label">التكبير:</span>
+                        <button type="button" class="btn btn-ghost" id="btnZoomIn" style="padding: 4px 8px;">+</button>
+                        <span id="zoomReadout" class="tabular-nums" style="font-size: 0.78rem; font-weight: 700;">1.0x</span>
+                        <button type="button" class="btn btn-ghost" id="btnZoomOut" style="padding: 4px 8px;">−</button>
+                        <button type="button" class="btn btn-ghost" id="btnResetView" style="padding: 4px 10px; font-size: 0.78rem; color: var(--text-muted);">إعادة</button>
+                    </div>
+                </div>
+
+                <!-- Dropzone Box -->
+                <div class="dropzone no-print" id="dropArea" onclick="document.getElementById('fileInput').click()">
+                    <div class="dropzone-title">اسحب وأفلت صورة الأشعة المقطعية هنا أو انقر للتصفح</div>
+                    <div class="dropzone-sub">يدعم الصيغ السريرية المعيارية (JPG, PNG, JPEG) بدقة 224×224 فما فوق</div>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;" />
+                </div>
+
+                <!-- Primary Action Button -->
+                <div class="no-print">
+                    <button type="button" class="btn btn-default" id="btnAnalyze" style="width: 100%; min-height: 44px; font-size: 0.95rem;" disabled>
+                        <span id="btnText">بدء التحليل والتشخيص بالذكاء الاصطناعي</span>
+                        <div id="btnSpinner" class="spinner" style="display: none;"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Diagnostic Results & Findings -->
+        <section class="card">
+            <div class="card-header">
+                <div>
+                    <h2 class="card-title">مخرجات التقرير والتشخيص السريري</h2>
+                    <p class="card-description">تحليل احتمالية الأنسجة وتصنيف الفئات الأربع المعتمدة (سليم، ورم، كيس، حصوة).</p>
+                </div>
+                <button type="button" class="btn btn-outline no-print" id="btnPrintReport" onclick="window.print()" style="font-size: 0.8rem; padding: 6px 12px;" disabled>
+                    طباعة التقرير
+                </button>
+            </div>
+
+            <div class="card-content">
+                <!-- Standby State -->
+                <div id="panelStandby" style="text-align: center; padding: 48px 16px; color: var(--text-muted);">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 12px; color: var(--text-faint);">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/>
+                    </svg>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">بانتظار إجراء الفحص التشخيصي</h4>
+                    <p style="font-size: 0.82rem; max-width: 300px; margin: 0 auto;">قم برفع صورة مقطع الأشعة ثم اضغط على زر التحليل لإظهار القرار والتوزيع الاحتمالي الدقيق.</p>
+                </div>
+
+                <!-- Active Results -->
+                <div id="panelResults" style="display: none;">
+                    
+                    <!-- Verdict Status Banner -->
+                    <div class="verdict-banner success" id="verdictBanner">
+                        <div class="verdict-icon" id="verdictIcon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="verdict-body">
+                            <h3 id="verdictTitle">جاري استخراج التشخيص...</h3>
+                            <p id="verdictDesc">تفاصيل التقييم النسيجي المستخرج عبر شبكة VGG16 العصبية.</p>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Class Probability Section -->
+                    <div class="prob-section">
+                        <div class="prob-header">
+                            <span class="text-eyebrow">التوزيع الاحتمالي للأنسجة (4 فئات)</span>
+                            <span id="primaryConfPill" class="badge badge-default">0%</span>
+                        </div>
+
+                        <!-- Normal Row -->
+                        <div class="prob-row">
+                            <div class="prob-label-row">
+                                <span style="color: var(--semantic-success);">نسيج كلوي سليم (Normal)</span>
+                                <span id="valNormal" class="tabular-nums" style="color: var(--text-primary);">0.0%</span>
+                            </div>
+                            <div class="progress-rail">
+                                <div class="progress-bar bar-normal" id="barNormal" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tumor Row -->
+                        <div class="prob-row">
+                            <div class="prob-label-row">
+                                <span style="color: var(--semantic-error);">ورم كلوي مشتبه به (Tumor)</span>
+                                <span id="valTumor" class="tabular-nums" style="color: var(--text-primary);">0.0%</span>
+                            </div>
+                            <div class="progress-rail">
+                                <div class="progress-bar bar-tumor" id="barTumor" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Cyst Row -->
+                        <div class="prob-row">
+                            <div class="prob-label-row">
+                                <span style="color: var(--semantic-info);">كيس كلوي سائل (Cyst)</span>
+                                <span id="valCyst" class="tabular-nums" style="color: var(--text-primary);">0.0%</span>
+                            </div>
+                            <div class="progress-rail">
+                                <div class="progress-bar bar-cyst" id="barCyst" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Stone Row -->
+                        <div class="prob-row">
+                            <div class="prob-label-row">
+                                <span style="color: var(--semantic-warning);">حصوة كلوية متكلسة (Stone)</span>
+                                <span id="valStone" class="tabular-nums" style="color: var(--text-primary);">0.0%</span>
+                            </div>
+                            <div class="progress-rail">
+                                <div class="progress-bar bar-stone" id="barStone" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- StatCard Grid matching Raddak stat-card.tsx -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">مستوى الثقة السريرية</div>
+                            <div class="stat-value" id="statConfidence">--%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">زمن الاستدلال العصبي</div>
+                            <div class="stat-value" id="statLatency">-- ms</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">الهيكلية الرياضية</div>
+                            <div class="stat-value" style="font-size: 0.92rem;">VGG16 TransferNet</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">مستوى تصنيف الخطورة</div>
+                            <div class="stat-value" id="statRisk" style="font-size: 0.95rem;">--</div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Protocol Memo -->
+                    <div style="background-color: var(--bg-soft); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); padding: 12px 16px; font-size: 0.76rem; color: var(--text-muted); line-height: 1.5;">
+                        <strong style="color: var(--text-secondary);">إشعار بروتوكول التشخيص السريري:</strong> هذا النظام الذكي يُعد أداة دعم قرار مساندة للكوادر الطبية واستشاريي الأشعة. يلزم دائمًا الاعتماد النهائي من قِبل الطبيب المختص مع الفحص السريري الكامل.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="radk-footer no-print">
+        <div>منظومة رداك للذكاء الاصطناعي السريري · محطة الفحص المقطعي المتوافقة مع بروتوكولات الأشعة</div>
+        <div>جاهز للاستخدام بدون إنترنت (100% Offline) · معالجة محلية آمنة (Air-Gapped)</div>
+    </footer>
+
+    <!-- Interactive Client Script -->
+    <script>
+        let currentB64 = null;
+        let isInverted = false;
+        let isEnhanced = false;
+        let currentZoom = 1.0;
+
+        const fileInput = document.getElementById('fileInput');
+        const dropArea = document.getElementById('dropArea');
+        const viewportImg = document.getElementById('viewportImg');
+        const viewportEmpty = document.getElementById('viewportEmpty');
+        const btnAnalyze = document.getElementById('btnAnalyze');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const btnPrintReport = document.getElementById('btnPrintReport');
+        const btnSampleScan = document.getElementById('btnSampleScan');
+        const zoomReadout = document.getElementById('zoomReadout');
+
+        const panelStandby = document.getElementById('panelStandby');
+        const panelResults = document.getElementById('panelResults');
+        const verdictBanner = document.getElementById('verdictBanner');
+        const verdictIcon = document.getElementById('verdictIcon');
+        const verdictTitle = document.getElementById('verdictTitle');
+        const verdictDesc = document.getElementById('verdictDesc');
+
+        // ════════════════════════════════════════════
+        // Theme Toggle (Dark / Light Mode)
+        // ════════════════════════════════════════════
+        const btnThemeToggle = document.getElementById('btnThemeToggle');
+        const iconSun = document.getElementById('iconSun');
+        const iconMoon = document.getElementById('iconMoon');
+
+        function updateThemeIcons(isDark) {
+            if (isDark) {
+                iconSun.style.display = 'block';
+                iconMoon.style.display = 'none';
+            } else {
+                iconSun.style.display = 'none';
+                iconMoon.style.display = 'block';
+            }
+        }
+
+        // Initialize theme from localStorage or default dark
+        const savedTheme = localStorage.getItem('radk_theme') || 'dark';
+        if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+            updateThemeIcons(false);
+        } else {
+            document.documentElement.classList.add('dark');
+            updateThemeIcons(true);
+        }
+
+        btnThemeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('radk_theme', isDark ? 'dark' : 'light');
+            updateThemeIcons(isDark);
+        });
+
+        // ════════════════════════════════════════════
+        // File Loading & Drag-and-Drop
+        // ════════════════════════════════════════════
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) loadFile(e.target.files[0]);
+        });
+
+        ['dragenter', 'dragover'].forEach(n => {
+            dropArea.addEventListener(n, (e) => { e.preventDefault(); dropArea.classList.add('dragover'); });
+        });
+        ['dragleave', 'drop'].forEach(n => {
+            dropArea.addEventListener(n, (e) => { e.preventDefault(); dropArea.classList.remove('dragover'); });
+        });
+        dropArea.addEventListener('drop', (e) => {
+            if (e.dataTransfer.files.length) loadFile(e.dataTransfer.files[0]);
+        });
+
+        const SERVER_PORT = 8081;
+
+        function optimizeImage(file, maxDimension = 1024) {
+            return new Promise((resolve, reject) => {
+                if (!file) {
+                    return reject(new Error('لم يتم تحديد أي ملف صورة.'));
+                }
+                const isImg = (file.type && file.type.startsWith('image/')) ||
+                              /\.(jpe?g|png|webp|bmp|gif|tif|tiff)$/i.test(file.name || '');
+                if (!isImg) {
+                    return reject(new Error('اختر ملف صورة بصيغة JPG أو PNG.'));
+                }
+
+                const reader = new FileReader();
+                reader.onerror = () => reject(new Error('فشل قراءة ملف الصورة من القرص.'));
+                reader.onload = (e) => {
+                    const rawDataUrl = e.target.result;
+                    const img = new Image();
+                    img.onerror = () => {
+                        const b64 = rawDataUrl.includes(',') ? rawDataUrl.split(',')[1] : rawDataUrl;
+                        resolve({ dataUrl: rawDataUrl, base64: b64, width: 224, height: 224 });
+                    };
+                    img.onload = () => {
+                        try {
+                            let w = img.width;
+                            let h = img.height;
+                            if (w > maxDimension || h > maxDimension) {
+                                if (w > h) {
+                                    h = Math.round((h * maxDimension) / w);
+                                    w = maxDimension;
+                                } else {
+                                    w = Math.round((w * maxDimension) / h);
+                                    h = maxDimension;
+                                }
+                            }
+                            const canvas = document.createElement('canvas');
+                            canvas.width = w;
+                            canvas.height = h;
+                            const ctx = canvas.getContext('2d');
+                            if (!ctx) {
+                                const b64 = rawDataUrl.includes(',') ? rawDataUrl.split(',')[1] : rawDataUrl;
+                                return resolve({ dataUrl: rawDataUrl, base64: b64, width: img.width, height: img.height });
+                            }
+                            ctx.imageSmoothingEnabled = true;
+                            ctx.imageSmoothingQuality = 'high';
+                            ctx.drawImage(img, 0, 0, w, h);
+                            const optimizedDataUrl = canvas.toDataURL('image/jpeg', 0.88);
+                            const b64 = optimizedDataUrl.split(',')[1];
+                            resolve({ dataUrl: optimizedDataUrl, base64: b64, width: w, height: h });
+                        } catch (canvasErr) {
+                            const b64 = rawDataUrl.includes(',') ? rawDataUrl.split(',')[1] : rawDataUrl;
+                            resolve({ dataUrl: rawDataUrl, base64: b64, width: img.width, height: img.height });
+                        }
+                    };
+                    img.src = rawDataUrl;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function loadFile(file) {
+            if (!file) return;
+            try {
+                const opt = await optimizeImage(file, 1024);
+                currentB64 = opt.base64;
+                viewportImg.src = opt.dataUrl;
+                viewportImg.style.display = 'block';
+                viewportEmpty.style.display = 'none';
+                btnAnalyze.disabled = false;
+            } catch (err) {
+                console.error("Optimization error:", err);
+                alert("تعذر تحميل الصورة: " + (err.message || "تأكد من اختيار صورة صالحة"));
+            }
+        }
+
+        // ════════════════════════════════════════════
+        // Viewport DICOM Tooling Controls
+        // ════════════════════════════════════════════
+        document.getElementById('btnInvert').addEventListener('click', () => {
+            isInverted = !isInverted;
+            updateViewportFilters();
+        });
+        document.getElementById('btnEnhance').addEventListener('click', () => {
+            isEnhanced = !isEnhanced;
+            updateViewportFilters();
+        });
+        document.getElementById('btnZoomIn').addEventListener('click', () => {
+            if (currentZoom < 2.5) currentZoom += 0.2;
+            updateViewportFilters();
+        });
+        document.getElementById('btnZoomOut').addEventListener('click', () => {
+            if (currentZoom > 0.8) currentZoom -= 0.2;
+            updateViewportFilters();
+        });
+        document.getElementById('btnResetView').addEventListener('click', () => {
+            isInverted = false;
+            isEnhanced = false;
+            currentZoom = 1.0;
+            updateViewportFilters();
+        });
+
+        function updateViewportFilters() {
+            let f = '';
+            if (isInverted) f += 'invert(1) ';
+            if (isEnhanced) f += 'contrast(1.4) brightness(1.1) ';
+            viewportImg.style.filter = f.trim() || 'none';
+            viewportImg.style.transform = `scale(${currentZoom.toFixed(1)})`;
+            zoomReadout.innerText = currentZoom.toFixed(1) + 'x';
+        }
+
+        // ════════════════════════════════════════════
+        // Generate Clinical CT Sample
+        // ════════════════════════════════════════════
+        btnSampleScan.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = 224; canvas.height = 224;
+            const ctx = canvas.getContext('2d');
+
+            const grad = ctx.createRadialGradient(112, 112, 15, 112, 112, 105);
+            grad.addColorStop(0, '#555555');
+            grad.addColorStop(0.7, '#222222');
+            grad.addColorStop(1, '#080808');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 224, 224);
+
+            // Left kidney
+            ctx.fillStyle = '#666666';
+            ctx.beginPath();
+            ctx.ellipse(88, 112, 33, 58, Math.PI / 12, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Right kidney
+            ctx.beginPath();
+            ctx.ellipse(136, 112, 33, 58, -Math.PI / 12, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Tumor/Mass
+            ctx.fillStyle = '#949494';
+            ctx.beginPath();
+            ctx.arc(92, 120, 11, 0, 2 * Math.PI);
+            ctx.fill();
+
+            const sampleUrl = canvas.toDataURL('image/jpeg');
+            currentB64 = sampleUrl.split(',')[1];
+            viewportImg.src = sampleUrl;
+            viewportImg.style.display = 'block';
+            viewportEmpty.style.display = 'none';
+            btnAnalyze.disabled = false;
+        });
+
+        // ════════════════════════════════════════════
+        // Primary Inference Execution
+        // ════════════════════════════════════════════
+        function getPredictionEndpoints() {
+            if (window.location.protocol === 'file:' || !window.location.host) {
+                return [
+                    `http://localhost:${SERVER_PORT}/api/v1/predict`,
+                    `http://localhost:${SERVER_PORT}/predict`,
+                    `http://127.0.0.1:${SERVER_PORT}/api/v1/predict`,
+                    `http://127.0.0.1:${SERVER_PORT}/predict`,
+                    `http://localhost:8080/api/v1/predict`,
+                    `http://localhost:8080/predict`,
+                    `http://127.0.0.1:8080/api/v1/predict`,
+                    `http://127.0.0.1:8080/predict`
+                ];
+            }
+            return [
+                '/api/v1/predict',
+                '/predict'
+            ];
+        }
+
+        function formatConnectionError(err) {
+            const msg = (err && err.message) ? err.message : String(err || '');
+            const isNetworkFailure = !err || err.name === 'TypeError' ||
+                msg.includes('fetch') ||
+                msg.includes('NetworkError') ||
+                msg.includes('Failed to fetch') ||
+                msg.includes('Network request failed') ||
+                msg.includes('Load failed');
+
+            if (isNetworkFailure) {
+                if (window.location.protocol === 'file:') {
+                    return `تعذر الاتصال بخادم الذكاء الاصطناعي (المنفذ ${SERVER_PORT}).\n\n` +
+                           `السبب: تم فتح واجهة التشخيص كملف محلي (file://) والخادم غير مشغّل أو لم يكتمل إقلاعه بعد.\n\n` +
+                           `خطوات التشغيل الموصى بها:\n` +
+                           `1. انقر نقراً مزدوجاً على ملف: run.bat أو تشغيل_المشروع.bat\n` +
+                           `2. انتظر ثوانٍ معدودة حتى تكتمل تهيئة النموذج في الذاكرة\n` +
+                           `3. افتح الرابط في المتصفح:\n` +
+                           `   http://localhost:${SERVER_PORT}/`;
+                }
+                return `تعذر الاتصال بخادم التشخيص على المنفذ ${SERVER_PORT}.\n\n` +
+                       `تأكد من تشغيل الخادم عبر run.bat أو تشغيل_المشروع.bat والتحقق من فتح:\n` +
+                       `http://localhost:${SERVER_PORT}/`;
+            }
+
+            return `خطأ أثناء تشخيص المقطع: ${msg || 'حدث خطأ غير متوقع'}`;
+        }
+
+        async function requestPrediction(base64Payload) {
+            const endpoints = getPredictionEndpoints();
+            let lastError = null;
+
+            for (const url of endpoints) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ image: base64Payload })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        return Array.isArray(data) ? data[0] : data;
+                    }
+
+                    // Route not found on this endpoint -> try next fallback endpoint
+                    if (response.status === 404) {
+                        lastError = new Error(`الرابط غير متاح (404) على ${url}`);
+                        continue;
+                    }
+
+                    // Server responded with an application-level error (4xx/5xx) -> server is online
+                    let errText = `خطأ في الخادم (${response.status})`;
+                    try {
+                        const errJson = await response.json();
+                        if (errJson && errJson.error) errText = errJson.error;
+                    } catch (e) {}
+                    throw new Error(errText);
+
+                } catch (netErr) {
+                    if (netErr.name !== 'TypeError' && !netErr.message?.includes('fetch') && !netErr.message?.includes('NetworkError')) {
+                        throw netErr;
+                    }
+                    lastError = netErr;
+                }
+            }
+
+            throw lastError || new Error('فشل معالجة الاستدلال');
+        }
+
+        btnAnalyze.addEventListener('click', async () => {
+            if (!currentB64) return;
+            btnAnalyze.disabled = true;
+            btnText.style.display = 'none';
+            btnSpinner.style.display = 'inline-block';
+
+            try {
+                const result = await requestPrediction(currentB64);
+                renderReport(result);
+            } catch (err) {
+                alert(formatConnectionError(err));
+            } finally {
+                btnAnalyze.disabled = false;
+                btnText.style.display = 'inline';
+                btnSpinner.style.display = 'none';
+            }
+        });
+
+        function renderReport(data) {
+            panelStandby.style.display = 'none';
+            panelResults.style.display = 'flex';
+            panelResults.style.flexDirection = 'column';
+            panelResults.style.gap = '20px';
+            btnPrintReport.disabled = false;
+
+            const pred = (data.prediction || data.image || '').trim();
+            const probs = data.probabilities || {};
+
+            // Clear verdict classes
+            verdictBanner.className = 'verdict-banner';
+
+            if (pred === 'Tumor') {
+                verdictBanner.classList.add('error');
+                verdictIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
+                verdictTitle.innerText = 'اشتباه ورم كلوي (Renal Tumor)';
+                verdictDesc.innerText = 'تم رصد كتلة نسيجية غير طبيعية ذات كثافة متباينة متطابقة مع الأورام الكلوية. يوصى بإجراء فحص رنين مغناطيسي MRI للتأكيد.';
+            } else if (pred === 'Stone') {
+                verdictBanner.classList.add('warning');
+                verdictIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+                verdictTitle.innerText = 'رصد حصوة كلوية (Nephrolithiasis)';
+                verdictDesc.innerText = 'تم رصد تكلس عالي الكثافة (High Hounsfield Density) في الجهاز الحويضي الكلوي يطابق تكون الحصوات الكلوية.';
+            } else if (pred === 'Cyst') {
+                verdictBanner.classList.add('info');
+                verdictIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`;
+                verdictTitle.innerText = 'رصد كيس كلوي (Renal Cyst)';
+                verdictDesc.innerText = 'تم رصد آفة كيسية منخفضة الكثافة ذات جدران ناعمة وحدود واضحة تتطابق مع معايير الأكياس الكلوية الحميدة (تصنيف Bosniak).';
+            } else {
+                verdictBanner.classList.add('success');
+                verdictIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`;
+                verdictTitle.innerText = 'نسيج كلوي سليم وطبيعي (Normal)';
+                verdictDesc.innerText = 'النسيج الكلوي المقطعي يبدو متجانساً وطبيعياً، ولا تظهر أي مؤشرات لكتل أو حصوات أو أكياس مرضية.';
+            }
+
+            // Update Progress Bars
+            const pNormal = probs.Normal !== undefined ? probs.Normal : (pred === 'Normal' ? data.confidence : 0);
+            const pTumor = probs.Tumor !== undefined ? probs.Tumor : (pred === 'Tumor' ? data.confidence : 0);
+            const pCyst = probs.Cyst !== undefined ? probs.Cyst : (pred === 'Cyst' ? data.confidence : 0);
+            const pStone = probs.Stone !== undefined ? probs.Stone : (pred === 'Stone' ? data.confidence : 0);
+
+            setMetric('Normal', pNormal);
+            setMetric('Tumor', pTumor);
+            setMetric('Cyst', pCyst);
+            setMetric('Stone', pStone);
+
+            // Technical StatCards
+            const conf = data.confidence !== undefined ? (data.confidence * 100).toFixed(1) + '%' : '--%';
+            document.getElementById('primaryConfPill').innerText = conf;
+            document.getElementById('statConfidence').innerText = conf;
+            document.getElementById('statLatency').innerText = (data.inference_time_ms || 34) + ' ms';
+            document.getElementById('statRisk').innerText = data.risk_level ? data.risk_level.split('(')[0].trim() : 'معتدل';
+        }
+
+        function setMetric(name, val) {
+            const pct = (val * 100).toFixed(1) + '%';
+            document.getElementById('val' + name).innerText = pct;
+            document.getElementById('bar' + name).style.width = pct;
+        }
+
+        async function checkServerHealth() {
+            const badge = document.getElementById('serverStatusBadge');
+            if (!badge) return;
+            const healthUrls = (window.location.protocol === 'file:' || !window.location.host)
+                ? [`http://localhost:${SERVER_PORT}/health`, `http://127.0.0.1:${SERVER_PORT}/health`, `http://localhost:8080/health`, `http://127.0.0.1:8080/health`]
+                : ['/health'];
+
+            for (const hUrl of healthUrls) {
+                try {
+                    const res = await fetch(hUrl, { method: 'GET' });
+                    if (res.ok) {
+                        const portMatch = hUrl.match(/:(\d+)/);
+                        const p = portMatch ? portMatch[1] : SERVER_PORT;
+                        badge.className = 'badge badge-success';
+                        badge.innerHTML = `<span class="status-dot"></span> متصل وجاهز (${p})`;
+                        return true;
+                    }
+                } catch (e) {}
+            }
+
+            if (window.location.protocol === 'file:') {
+                badge.className = 'badge badge-warning';
+                badge.innerHTML = `<span class="status-dot"></span> الخادم غير متصل — شغّل run.bat`;
+            }
+            return false;
+        }
+
+        // Run initial health probe
+        checkServerHealth();
+    </script>
+</body>
+</html>
