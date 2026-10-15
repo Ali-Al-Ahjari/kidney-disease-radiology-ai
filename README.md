@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🏥 Kidney Disease Radiology AI Workstation
-### منظومة رداك للتشخيص الشعاعي لأمراض وأورام الكلى بالذكاء الاصطناعي
+### منظومة حلل للتشخيص الشعاعي لأمراض وأورام الكلى بالذكاء الاصطناعي
 
 **Clinical Computer-Aided Diagnosis (CAD) Workstation for Multi-Class Renal CT Image Classification**
 
